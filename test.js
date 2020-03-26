@@ -1,7 +1,5 @@
-# miracle-observer
-Push-based Data &amp; Event management based on React Hooks and RxJS
+import {initStore, subscribe, createNotifyStation, SubscribeMatchType, shutdown} from "./MiracleObserver";
 
-```javascript
 // init store all in one file or multifiles
 initStore({
   theme: 'night',
@@ -29,17 +27,6 @@ const sub1 = subscribe('hello_world', (k, v, store) => {
   console.log('sub1 result: ', v === store[k]);
 });
 
-/**
- * 订阅方法
- * @param key           Event Key
- * @param cbGetState    Callback
- * @param matchType     SubscribeMatchType
- * @param period        time that has to pass before emiting new items (ms)
- * @param throttle      0 for throttleTime
- *                      1 for debounceTime
- * @param preprocessing data pre process
-**/
-
 const sub2 = subscribe('goodbye', (k, v, store) => {
   console.log(k, store[k]);
   console.log('sub2 result: ', v === store[k]);
@@ -55,26 +42,3 @@ setTimeout(() => {
   shutdown();
 }, 1000);
 
-```
-
-Use with React Hook
-```javascript
-  useMiracleObserverHot(
-    'actionOne.actionTwo.actionThree',
-    (key, value, store) => {
-      console.log(key + value + globalCount);
-      setCount(count + 1);
-    },
-    SubscribeMatchType.ContainsNotify,
-  );
-  useMiracleObserver(
-    'actionTwo',
-    (key, value, store) => {
-      console.log(key + value + globalCount);
-      setGlobalCount(store.globalCount);
-    },
-    SubscribeMatchType.ExactMatch,
-    2000,
-    0,
-  );
-```

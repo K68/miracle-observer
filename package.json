@@ -1,0 +1,32 @@
+{
+  "name": "miracle-observer",
+  "version": "0.0.5",
+  "description": "Push-based Data & Event management based on React Hooks and RxJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test_start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K68/miracle-observer.git"
+  },
+  "keywords": [
+    "react-hooks",
+    "rxjs",
+    "observable"
+  ],
+  "author": "zh.yang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/K68/miracle-observer/issues"
+  },
+  "homepage": "https://github.com/K68/miracle-observer#readme",
+  "dependencies": {
+    "react": "^16.9.0",
+    "rxjs": "^6.5.4"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}
