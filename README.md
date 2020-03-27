@@ -1,6 +1,15 @@
 # miracle-observer
 Push-based Data &amp; Event management based on React Hooks and RxJS
 
+## Install
+
+```javascript
+npm i miracle-observer
+```
+[https://www.npmjs.com/package/miracle-observer](https://www.npmjs.com/package/miracle-observer)
+
+## Usage
+
 ```javascript
 // init store all in one file or multifiles
 initStore({
