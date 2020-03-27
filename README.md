@@ -66,8 +66,21 @@ setTimeout(() => {
 
 ```
 
-Use with React Hook
+### Use with React Hook
+
 ```javascript
+import React, {useState} from 'react';
+import {
+  useMiracleObserver,
+  useMiracleObserverHot,
+  createNotifyStation,
+  SubscribeMatchType,
+} from 'miracle-observer';
+
+const App: () => React$Node = () => {
+  const [globalCount, setGlobalCount] = useState(0);
+
+// bind every rerender, globalCount is fresh
   useMiracleObserverHot(
     'actionOne.actionTwo.actionThree',
     (key, value, store) => {
@@ -76,6 +89,8 @@ Use with React Hook
     },
     SubscribeMatchType.ContainsNotify,
   );
+
+// bind once in Component Mount, globalCount will not change
   useMiracleObserver(
     'actionTwo',
     (key, value, store) => {
@@ -86,4 +101,28 @@ Use with React Hook
     2000,
     0,
   );
+
+  ...
 ```
+
+## Reference
+
+https://github.com/ReactiveX/RxJS
+
+https://reactjs.org/docs/hooks-effect.html
+
+https://cn.rx.js.org/manual/index.html
+
+https://cn.rx.js.org/class/es6/Observable.js~Observable.html
+
+https://medium.com/@thomasburlesonIA/https-medium-com-thomasburlesonia-react-hooks-rxjs-facades-4e116330bbe1
+
+https://www.jianshu.com/p/76901410645a
+
+https://github.com/LeetCode-OpenSource/rxjs-hooks
+
+https://github.com/LeetCode-OpenSource/rxjs-hooks
+
+https://zhuanlan.zhihu.com/p/49408348
+
+https://github.com/react-native-community/hooks
