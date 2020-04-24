@@ -1,6 +1,6 @@
 {
   "name": "miracle-observer",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Push-based Data & Event management based on React Hooks and RxJS",
   "main": "index.js",
   "scripts": {

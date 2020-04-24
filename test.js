@@ -1,4 +1,5 @@
 import {initStore, subscribe, createNotifyStation, SubscribeMatchType, shutdown} from "./MiracleObserver";
+import axios from 'axios';
 
 // init store all in one file or multifiles
 initStore({
@@ -36,9 +37,17 @@ const sub2 = subscribe('goodbye', (k, v, store) => {
 station.notify('hello_world', ': our future');
 station.notify('bye', ': ContainsNotify');
 
+axios.get('https://www.so.com')
+  .then((response) => {
+    station.notify('hello_world', response.data);
+
+  }).catch((error) => {
+    console.log(error.toJSON());
+  });
+
 setTimeout(() => {
   sub1.unsubscribe();
   sub2.unsubscribe();
   shutdown();
-}, 1000);
+}, 10000);
 

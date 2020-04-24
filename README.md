@@ -105,6 +105,20 @@ const App: () => React$Node = () => {
   ...
 ```
 
+### Use with Ajax
+
+npm install axios
+
+```javascript
+axios.get('https://www.so.com')
+  .then((response) => {
+    station.notify('hello_world', response.data);
+
+  }).catch((error) => {
+    console.log(error.toJSON());
+  });
+```
+
 ## Reference
 
 https://github.com/ReactiveX/RxJS
