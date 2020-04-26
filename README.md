@@ -95,7 +95,8 @@ const App: () => React$Node = () => {
     'actionTwo',
     (key, value, store) => {
       console.log(key + value + globalCount);
-      setGlobalCount(store.globalCount);
+      // setGlobalCount(store.globalCount);
+      setGlobalCount(gCount => gCount + 1);
     },
     SubscribeMatchType.ExactMatch,
     2000,
@@ -140,3 +141,7 @@ https://github.com/LeetCode-OpenSource/rxjs-hooks
 https://zhuanlan.zhihu.com/p/49408348
 
 https://github.com/react-native-community/hooks
+
+https://www.cnblogs.com/chenwenhao/p/12639077.html
+
+https://segmentfault.com/a/1190000018253310

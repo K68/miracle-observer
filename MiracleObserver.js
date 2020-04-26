@@ -112,6 +112,14 @@ export function initStore(initialState, aspect) {
   }
 }
 
+export function getStore(aspect) {
+  if (aspect) {
+    return GlobalStore[aspect];
+  } else {
+    return GlobalStore;
+  }
+}
+
 export function setInitialState(cb) {
   return cb(GlobalStore);
 }
