@@ -3,6 +3,7 @@ import {
   subscribe,
   SubscribeMatchType,
   setInitialState,
+  getStore
 } from './MiracleObserver.js';
 
 export function useMiracleStore(initialFunc, updateFunc) {
@@ -12,11 +13,15 @@ export function useMiracleStore(initialFunc, updateFunc) {
     setValue(setInitialState(initialFunc));
   };
 
-  const updateValue = (key, _value, store) => {
-    setValue(updateFunc(key, _value, store));
+  const updateValue = (_value, store) => {
+    if (store) {
+      setValue(updateFunc(_value, store));
+    } else {
+      setValue(updateFunc(_value, getStore()));
+    }
   };
 
-  return [value, setValue, initValue, updateValue];
+  return [value, updateValue, initValue];
 }
 
 /**
